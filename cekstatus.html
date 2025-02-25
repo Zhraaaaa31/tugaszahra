@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan percabangan</title>
+</head>
+<body>
+        <h1>Aplikasi pembayaran potocoppy</h1>
+        Pilih anggota
+        <form onsubmit="return false">
+            <select name="status" id="status">
+                <option value="Pelanggan">Pelanggan</option>
+                <option value="Bukan Pelanggan">Bukan Pelanggan</option>
+            </select>
+            
+            Jumlah Fotocopi <input type="number" id="Jumlah"><br
+            <button onclick="hitung()">Hitung Total Bayar</button>
+        </form>
+    <p id="hasil"></p>
+    <script>
+        function hitung() {
+            let status = document.getElementById('status').value
+            let JF = document.getElementById('Jumlah').value
+    
+            if (status == 'Pelanggan') {
+                HP = 75
+            } else {
+                if (JF <= 100) {
+                   HP = 100 
+                } else {
+                    HP = 85
+                }
+            }
+            let TH = JF * HP
+            document.getElementById('hasil').innerHTML=`Status : ${status} <br>
+            Jumlah Fotocopy : ${JF} <br>
+            Total Pembayaran : ${TH}`
+        }
+    </script>
+
+    
+</body>
+</html>

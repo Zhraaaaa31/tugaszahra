@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjualam Buah</title>
+</head>
+<body>
+    <form action="method=post" onsubmit="return false"></form>
+    <h1>Penjualan Buah-Buahan</h1><br>
+Maukan Nama buah <br><input type="text" id="buah"><br>
+Maukan Harga per kg <br><input type="text" id="harga"><br>
+Masukan jumlah pembelian<br><input type="text" id="jumlah">kg<br>
+<label>Total</label>
+<textarea id="total"></textarea><br>
+<label>Diskon</label>
+<textarea id="dis"></textarea><br>
+<label>Bayar</label>
+<textarea id="bayar"></textarea><br>
+<button onclick="hasil()">Proses</button>
+
+<script> 
+   function hasil (){
+
+    let harga = parseInt(document.getElementById('harga').value)
+    let jumlah = parseInt(document.getElementById('jumlah').value)
+    let total = harga * jumlah;
+
+    let diskon = 0; 
+    if (total >= 50000 && total <= 100000) {
+        diskon = 5; 
+    }  if (total > 100000) {
+        diskon = 10;
+    }
+    let potongan = total * (diskon / 100);
+    let bayar = total - potongan;
+
+    document.getElementById("total").textContent = total;
+    document.getElementById("dis").textContent = diskon + "%";
+    document.getElementById("bayar").textContent = bayar;
+}
+
+
+    </script>
+
+
+</body>
+</html>
